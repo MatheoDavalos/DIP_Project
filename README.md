@@ -47,32 +47,39 @@ snapshot and reads only the four bundled demonstration images in `data/samples/`
 
 ## Setup in VS Code
 
-The project was checked on Linux with Python **3.10.12**. The direct dependency
-versions in `requirements.txt` match the working environment. Transitive
-dependencies are resolved by pip; this is not a complete environment lockfile.
-
-Use VS Code with the Python and Jupyter extensions installed. In its integrated
-terminal, clone the repository and create a virtual environment:
+Install Python **3.10**, Git, and the **Python** and **Jupyter** extensions in VS Code.
+Clone the project using VS Code's integrated terminal:
 
 ```bash
 git clone https://github.com/MatheoDavalos/leaf-image-processing.git
 cd leaf-image-processing
-python3 -m venv .venv
-source .venv/bin/activate
-python -m pip install --upgrade pip
-python -m pip install -r requirements.txt
-python -m ipykernel install --user --name leaf-image-processing --display-name "Python (Leaf Image Processing)"
 ```
 
-On Windows, use `py -3.10 -m venv .venv` to create the environment and
-`.venv\Scripts\Activate.ps1` in PowerShell to activate it. The remaining Python
-commands are the same. Windows execution has not been verified.
+Create and activate the environment on Linux (tested with Python 3.10.12):
+
+```bash
+python3 -m venv .venv
+source .venv/bin/activate
+```
+
+On Windows, use these PowerShell commands instead (not verified on Windows):
+
+```powershell
+py -3.10 -m venv .venv
+.venv\Scripts\Activate.ps1
+```
+
+Install all project dependencies from [`requirements.txt`](requirements.txt):
+
+```bash
+python -m pip install -r requirements.txt
+```
 
 ### Run in VS Code
 
 1. Open the repository folder in VS Code with the Python and Jupyter extensions.
 2. Open [`notebooks/apple_leaf_analysis.ipynb`](notebooks/apple_leaf_analysis.ipynb).
-3. Select **Python (Leaf Image Processing)**, or the interpreter inside `.venv`.
+3. Use **Select Kernel** to choose the Python interpreter inside `.venv`.
 4. Restart the kernel and run all cells from top to bottom.
 5. Save the notebook to retain the updated figures and tables. The final cell
    updates the result files in `outputs/`.
