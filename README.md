@@ -11,7 +11,7 @@ English; the notebook retains its Portuguese explanations for the course.
 ## Project Structure
 
 ```text
-leaf-image-processing/
+DIP_Project/
   README.md
   requirements.txt
   .gitignore
@@ -51,8 +51,8 @@ Install Python **3.10**, Git, and the **Python** and **Jupyter** extensions in V
 Clone the project using VS Code's integrated terminal:
 
 ```bash
-git clone https://github.com/MatheoDavalos/leaf-image-processing.git
-cd leaf-image-processing
+git clone https://github.com/MatheoDavalos/DIP_Project.git
+cd DIP_Project
 ```
 
 Create and activate the environment on Linux (tested with Python 3.10.12):
