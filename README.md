@@ -28,16 +28,17 @@ leaf-image-processing/
       Apple___Apple_scab/
       Apple___Black_rot/
       Apple___Cedar_apple_rust/
-  tests/
-    test_fft.py
-    test_pipeline_bordas.py
+  outputs/
+    tuning_snapshot.json          # Frozen tuning parameters and metrics
+    tuning_summary.csv            # Tabular tuning metrics, including partial status
+    edge_stability.csv            # Current edge stability results
 ```
 
 The following directories are local-only and excluded from Git:
 
-- `local/`: study reports, earlier notebooks, original executed notebook and
-  archived experiment tests.
-- `outputs/`: generated notebook exports and earlier denoising results.
+- `local/`: study reports, earlier notebooks, historical results and tests
+  awaiting further organization.
+- `*.executed.ipynb`: temporary executed copies, if generated from the terminal.
 - `.venv/` and editor configuration: machine-specific environment and settings.
 
 These local-only folders are not included when cloning. The complete apple
@@ -97,8 +98,16 @@ mkdir -p outputs
 python -m jupyter nbconvert --to notebook --execute notebooks/apple_leaf_analysis.ipynb --ExecutePreprocessor.kernel_name=leaf-image-processing --ExecutePreprocessor.timeout=600 --output apple_leaf_analysis.executed.ipynb --output-dir outputs
 ```
 
-The executed copy is saved locally in `outputs/`. The committed notebook contains
-source and the frozen numerical snapshot, with generated cell outputs cleared.
+The executed copy is saved locally in `outputs/` and ignored by Git. The public
+notebook includes its figures and tables, so results can also be viewed without
+running Python. To update that single public notebook after terminal execution:
+
+```bash
+cp outputs/apple_leaf_analysis.executed.ipynb notebooks/apple_leaf_analysis.ipynb
+```
+
+Running and saving directly in VS Code or JupyterLab updates the main notebook
+without this copy step.
 
 ## Notebook Workflow
 
@@ -136,6 +145,12 @@ Edit the configuration cells near the start, then restart and run all cells:
 
 The in-memory outputs for later work are `IMAGENS_PRE_PROCESSADAS`,
 `RESULTADOS_BORDAS` and `TABELA_ESTABILIDADE`.
+
+The final cell also overwrites three unified result files in `outputs/`:
+`tuning_snapshot.json`, `tuning_summary.csv` and `edge_stability.csv`. The first
+two reproduce the historical tuning snapshot, including its partial sigma 15
+status; the edge stability table is recomputed by the current execution.
+Figures remain in the main notebook instead of duplicated executed notebooks.
 
 ### Interpretation Limits
 
@@ -187,19 +202,6 @@ archives. Filesystem allocation can occupy more space than the image bytes. For 
 experiments, retain the unaugmented base and define data splits before generating
 additional augmented variants.
 
-## Verification
-
-With the environment activated:
-
-```bash
-python -m unittest discover -s tests -v
-```
-
-The nine tests exercise FFT/IFFT identity, notch suppression and validation,
-Gaussian low-pass behavior, basic Sobel/Canny behavior and edge-map comparisons.
-They load functions directly from the main notebook. A full notebook execution
-additionally checks sample loading, filter execution and plotting.
-
 ## Initialize and Publish a Repository
 
 Cloning already initializes Git and configures `origin`. The following steps
@@ -209,7 +211,7 @@ are for a fresh local copy that does **not** yet have a Git repository:
 git init -b main
 git config user.name "Your Name"
 git config user.email "your-email@example.com"
-git add README.md requirements.txt .gitignore notebooks data tests
+git add README.md requirements.txt .gitignore notebooks data outputs
 git diff --cached --stat
 git commit -m "Initialize Leaf Image Processing"
 ```
@@ -223,20 +225,20 @@ gh repo create leaf-image-processing --public --source=. --remote=origin --push
 ```
 
 Run the creation command only once, when the remote repository does not exist.
-For subsequent changes, clear generated notebook outputs before committing:
+For subsequent changes, run and save the main notebook to keep its figures,
+tables and exported results synchronized, then commit the intended changes:
 
 ```bash
-python -m jupyter nbconvert --clear-output --inplace notebooks/apple_leaf_analysis.ipynb
 git status --short
-git add notebooks/apple_leaf_analysis.ipynb
+git add notebooks/apple_leaf_analysis.ipynb outputs
 git diff --cached --stat
 git commit -m "Describe the change"
 git push
 ```
 
-Add any other intentionally changed files by name. Study documents and generated
-outputs stay local through `.gitignore`. The apple datasets are intentionally
-tracked under `data/raw/`.
+Add any other intentionally changed files by name. Study documents, historical
+experiments and tests stay local through `.gitignore`. The apple datasets and
+current unified results are intentionally tracked.
 
 ## Attribution
 
