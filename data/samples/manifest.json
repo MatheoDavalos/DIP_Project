@@ -1,0 +1,22 @@
+[
+  {
+    "path": "Apple___healthy/image (1000).JPG",
+    "sha256": "cff806b536e2767ea692120f126e93cd2946dafa11ad41d9ecf3a0bebb5b6095",
+    "bytes": 10347
+  },
+  {
+    "path": "Apple___Apple_scab/image (101).JPG",
+    "sha256": "1c5538da4383ed3d6fbc52d7c5bc82d8c743ed57eee40c7d100bbd2d0a0e9977",
+    "bytes": 13311
+  },
+  {
+    "path": "Apple___Black_rot/image (101).JPG",
+    "sha256": "8414d3bbd17c1974e620503110e691ee048a046dd4801090675b96695395c1a9",
+    "bytes": 23679
+  },
+  {
+    "path": "Apple___Cedar_apple_rust/image (101).JPG",
+    "sha256": "64f4117c223bc9be1bec8a949fa2b758d7a349c605af92ac3bf7457394aa0489",
+    "bytes": 8862
+  }
+]

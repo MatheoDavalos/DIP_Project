@@ -1,0 +1,9 @@
+# Direct dependencies from the working Python 3.10 environment.
+bm3d==4.0.3
+numpy==2.2.6
+opencv-python==5.0.0.93
+pandas==2.3.3
+matplotlib==3.10.9
+Jinja2==3.1.6
+ipykernel==7.3.0
+nbconvert==7.17.1

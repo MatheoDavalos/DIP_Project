@@ -1,0 +1,27 @@
+# Personal study material and generated results
+/local/
+/outputs/
+
+# Local environments and editor settings
+.venv/
+venv/
+.vscode/
+.idea/
+.agents/
+.codex/
+__pycache__/
+*.py[cod]
+.ipynb_checkpoints/
+.pytest_cache/
+.DS_Store
+Thumbs.db
+
+# Credentials and local configuration
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+
+# Executed notebook exports
+*.executed.ipynb
