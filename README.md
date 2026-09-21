@@ -45,13 +45,14 @@ These local-only folders are not included when cloning. The complete apple
 dataset under `data/raw/` IS included. The main notebook contains its parameter
 snapshot and reads only the four bundled demonstration images in `data/samples/`.
 
-## Setup
+## Setup in VS Code
 
 The project was checked on Linux with Python **3.10.12**. The direct dependency
 versions in `requirements.txt` match the working environment. Transitive
 dependencies are resolved by pip; this is not a complete environment lockfile.
 
-Clone the repository and create a virtual environment:
+Use VS Code with the Python and Jupyter extensions installed. In its integrated
+terminal, clone the repository and create a virtual environment:
 
 ```bash
 git clone https://github.com/MatheoDavalos/leaf-image-processing.git
@@ -73,41 +74,15 @@ commands are the same. Windows execution has not been verified.
 2. Open [`notebooks/apple_leaf_analysis.ipynb`](notebooks/apple_leaf_analysis.ipynb).
 3. Select **Python (Leaf Image Processing)**, or the interpreter inside `.venv`.
 4. Restart the kernel and run all cells from top to bottom.
+5. Save the notebook to retain the updated figures and tables. The final cell
+   updates the result files in `outputs/`.
 
 The notebook finds the project root when launched from the root or a directory
 inside it. No absolute machine-specific data path is required.
 
-### Run in JupyterLab
-
-JupyterLab is an optional interface, installed separately:
-
-```bash
-python -m pip install jupyterlab
-python -m jupyter lab notebooks/apple_leaf_analysis.ipynb
-```
-
-Select the same kernel and run all cells. BM3D can take longer than the other
-filters; execution time depends on your CPU.
-
-### Execute from the Terminal
-
-From the repository root, using the activated environment:
-
-```bash
-mkdir -p outputs
-python -m jupyter nbconvert --to notebook --execute notebooks/apple_leaf_analysis.ipynb --ExecutePreprocessor.kernel_name=leaf-image-processing --ExecutePreprocessor.timeout=600 --output apple_leaf_analysis.executed.ipynb --output-dir outputs
-```
-
-The executed copy is saved locally in `outputs/` and ignored by Git. The public
-notebook includes its figures and tables, so results can also be viewed without
-running Python. To update that single public notebook after terminal execution:
-
-```bash
-cp outputs/apple_leaf_analysis.executed.ipynb notebooks/apple_leaf_analysis.ipynb
-```
-
-Running and saving directly in VS Code or JupyterLab updates the main notebook
-without this copy step.
+BM3D can take longer than the other filters; execution time depends on your CPU.
+The public notebook includes its figures and tables, so results can also be
+viewed without running Python.
 
 ## Notebook Workflow
 
