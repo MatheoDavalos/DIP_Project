@@ -1,5 +1,7 @@
 # Leaf Image Processing
 
+| Juliano Eleno Silva Pádua - RA: 800812 | Matheo Sebastian Duarte Davalos - RA: 821293 | Fe...
+
 A notebook-based Digital Image Processing course project exploring denoising,
 frequency analysis and edge detection on apple leaf images from PlantVillage.
 
