@@ -202,44 +202,6 @@ archives. Filesystem allocation can occupy more space than the image bytes. For 
 experiments, retain the unaugmented base and define data splits before generating
 additional augmented variants.
 
-## Initialize and Publish a Repository
-
-Cloning already initializes Git and configures `origin`. The following steps
-are for a fresh local copy that does **not** yet have a Git repository:
-
-```bash
-git init -b main
-git config user.name "Your Name"
-git config user.email "your-email@example.com"
-git add README.md requirements.txt .gitignore notebooks data outputs
-git diff --cached --stat
-git commit -m "Initialize Leaf Image Processing"
-```
-
-Install the [GitHub CLI](https://cli.github.com/) and authenticate through the
-browser, then create a new public repository in your account:
-
-```bash
-gh auth login --hostname github.com --git-protocol https --web
-gh repo create leaf-image-processing --public --source=. --remote=origin --push
-```
-
-Run the creation command only once, when the remote repository does not exist.
-For subsequent changes, run and save the main notebook to keep its figures,
-tables and exported results synchronized, then commit the intended changes:
-
-```bash
-git status --short
-git add notebooks/apple_leaf_analysis.ipynb outputs
-git diff --cached --stat
-git commit -m "Describe the change"
-git push
-```
-
-Add any other intentionally changed files by name. Study documents, historical
-experiments and tests stay local through `.gitignore`. The apple datasets and
-current unified results are intentionally tracked.
-
 ## Attribution
 
 Dataset distribution: ARUN PANDIAN J; GEETHARAMANI GOPAL (2019), *Data for:
