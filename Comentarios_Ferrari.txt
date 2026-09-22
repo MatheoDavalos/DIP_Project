@@ -1,0 +1,13 @@
+# Comentarios do Ferrari sobre nosso projeto.
+
+### Aula_5 - 21 de Setembro
+
+- Não focar em FFT no nosso projeto. Não parece ser relevante.
+- Ao inves disso focar nas texturas.
+- A filtragem bilinear parece uma que está dando certo, focar nela, na gaussiana ou mediana.
+- Para a parte de analise de texturas é podemos olhar os métodos GLCM (Gray-Level Co-occurent Matrix) ou LBP (Local Binary Patterns).
+- Fazer testes com diferentes thresholdings do ImageJ.
+
+ImageJ -> Pluggins -> Segmentation -> thresholdings.
+
+(Não precisa ser necessariamente o do ImageJ, tem bibliotecas em python também, só que aí estão organizados os tipos de thresholdings)
