@@ -1,5 +1,7 @@
 # Leaf Image Processing
 
+| Juliano Eleno Silva Pádua - RA: 800812 | Matheo Sebastian Duarte Davalos - RA: 821293 | Fe...
+
 A single-notebook Digital Image Processing course project on apple leaf images
 from PlantVillage. Active pipeline: **denoising -> Sobel and Canny -> GLCM**.
 
