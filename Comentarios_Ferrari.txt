@@ -4,7 +4,7 @@
 
 - Não focar em FFT no nosso projeto. Não parece ser relevante.
 - Ao inves disso focar nas texturas.
-- A filtragem bilinear parece uma que está dando certo, focar nela, na gaussiana ou mediana.
+- A filtragem bilinear parece uma que está dando certo, mas a gaussiana e mediana também são ok.
 - Para a parte de analise de texturas é podemos olhar os métodos GLCM (Gray-Level Co-occurent Matrix) ou LBP (Local Binary Patterns).
 - Fazer testes com diferentes thresholdings do ImageJ.
 
