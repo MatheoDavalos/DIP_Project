@@ -24,3 +24,7 @@ Thumbs.db
 
 # Executed notebook exports
 *.executed.ipynb
+
+# Optional full dataset and private course feedback
+/data/raw/
+/Comentarios_Ferrari.txt

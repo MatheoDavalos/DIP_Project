@@ -35,20 +35,23 @@ archive identity.
 Background: Hughes and Salathe (2015),
 [PlantVillage paper](https://arxiv.org/abs/1511.08060).
 
-## Complete Apple Dataset
+## Optional Complete Apple Dataset
 
-Both complete apple subsets are included in this repository under `data/raw/`,
-so a normal clone downloads them. To obtain another copy from the source:
+Only these four sample images are tracked. The complete apple subsets belong in
+`data/raw/`, which is ignored by Git. From the repository root, run:
 
-1. Open the Mendeley record and download the **without augmentation** archive.
-2. Extract all images from the four `Apple___*` class folders into `data/raw/without/`.
-3. Keep each class folder and original filename unchanged.
-4. Keep augmented images, if needed later, separately under `data/raw/with/`.
+```bash
+python scripts/download_data.py
+python scripts/download_data.py --subset all
+python scripts/download_data.py --subset all --verify-only
+```
 
-Both raw folders are tracked by Git. Their presence does not change which
-images the main notebook reads. Its default `PASTA_IMAGENS` remains `data/samples`.
-All processing in the current notebook is limited to the four selected files.
+The default restores 3,171 unaugmented images; `--subset all` restores those plus
+4,645 augmented images. The script uses a pinned historical project snapshot,
+with exact file sizes and SHA-256 hashes in `data/download_manifest.json`.
+These checksums establish the identity of the preserved project inputs, not
+identity with an independently downloaded Mendeley archive. Full Git history
+still contains the old dataset; see the root README for the shallow-clone option.
 
-The repository contains 3,171 unaugmented apple images and 4,645 images in the
-augmented version. The complete apple subset is available for later experiments;
-the four demonstration copies remain the only inputs to the main notebook.
+The notebook continues to read only the four files in `data/samples/`.
+Third-party images are excluded from the project's MIT software license.
