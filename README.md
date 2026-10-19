@@ -1,6 +1,6 @@
 # Leaf Image Processing
 
-Course project by Juliano Eleno Silva Pádua and Matheo Sebastian Duarte Davalos.
+Course project by .
 
 A Digital Image Processing project on PlantVillage apple leaf images. The
 current batch pipeline performs **denoising -> leaf segmentation -> morphology
